@@ -19,7 +19,7 @@ def find_duplicate(nums):
     if not isinstance(nums, list):
         return False
 
-    nums.sort
+    nums.sort()
 
     for index, num in enumerate(nums):
         if not (isinstance(num, int) and num >= 0):
