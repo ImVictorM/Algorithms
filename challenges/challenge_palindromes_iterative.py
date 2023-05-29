@@ -3,7 +3,7 @@ def is_palindrome_iterative(word):
         return False
 
     left, right = 0, len(word) - 1
-    for _ in word:
+    while left < right:
         if word[right] != word[left]:
             return False
         else:
