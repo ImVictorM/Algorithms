@@ -1,34 +1,16 @@
-def binary_search(lst, target, start=0):
-    end = len(lst) - 1
-
-    while start <= end:
-        mid = (start + end) // 2
-
-        if lst[mid] == target:
-            return (lst[mid], mid)
-
-        if target < lst[mid]:
-            end = mid - 1
-        else:
-            start = mid + 1
-
-    return None
-
-
 def find_duplicate(nums):
     if not isinstance(nums, list):
         return False
 
-    nums.sort()
+    nums_count = {}
 
-    for index, num in enumerate(nums):
+    for num in nums:
         if not (isinstance(num, int) and num >= 0):
             return False
 
-        next = index + 1
-        exists = binary_search(nums, num, next)
-
-        if exists:
-            return exists[0]
+        if num in nums_count:
+            return num
+        else:
+            nums_count[num] = 1
 
     return False
